@@ -1,0 +1,19 @@
+//OOP inheritance
+class Animal {   // properties and method of the parent class
+  var name: String = ""
+  func eat() {
+    print("I can walk")
+  }
+}
+
+// inherit from Animal
+class Dog: Animal {    // new method in subclass
+  func display() {     // access name property of superclass
+    print("My name is ", name);
+  }
+}
+
+var labrador = Dog()   // create an object of the subclass
+labrador.name = "Doggy"  // access superclass property and method 
+labrador.eat()
+labrador.display()  // call subclass method 
