@@ -1,0 +1,45 @@
+/* Write a program in swift langauge to find the given string is a palindrome or not.
+1. Input string should be provided by the user, if not display error message "Enter a value"
+2. Input string should not be less than 5 character and greater than 15 character, if not display error message "invalid length"
+3. Only alphabet is allowed to enter in input string, if not display error message " Invalid String"
+4. If the input string is palindrom, then display the input string and "The given string is a palindrom",  else display the input string and " the given string is not a palindrom"
+5. Add appropriate comments for the logic
+
+Hello  => Hello is not a palindrome      // 5 chars
+Malayalam => Malayalam is a palindrome  // Not case sensitive
+Hey ! ==>Hey ! is an invalid string     // other than alphabet
+Who   ==> Who is an invalid length string  // less than 5 
+      ==>  Enter a value    // No input
+*/
+func checkPalindrome(input: String) {
+    // Check if the input is less than 5 characters or greater than 15 characters
+    if input.count < 5 || input.count > 15 {
+        print("\n\(input) is an invalid length string")
+        return
+    }
+    
+    // Check if the input contains only alphabets
+    let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    for char in input {
+        if !letters.contains(char) {
+            print("\n\(input) is an invalid string")
+            return
+        }
+    }
+    // Make the input lowercase
+    let lowercaseInput = input.lowercased()
+    // Check if the input is a palindrome
+    let reversedInput = String(lowercaseInput.reversed())
+    if lowercaseInput == reversedInput {
+        print("\n\(input) is a palindrome")
+    } else {
+        print("\n\(input) is not a palindrome")
+    }
+}
+
+// Get input from the user
+if let input = readLine() {
+    checkPalindrome(input: input)
+} else {
+    print("Enter a value")
+}
